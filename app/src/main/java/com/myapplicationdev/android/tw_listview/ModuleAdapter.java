@@ -7,16 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 public class ModuleAdapter  extends ArrayAdapter<Module> {
-
     private ArrayList<Module> modules;
     private Context context;
     private TextView tvModuleCode;
     private ImageView ivImage;
-
     public ModuleAdapter(Context context, int resource, ArrayList<Module> objects){
         super(context, resource, objects);
         // Store the food that is passed to this adapter
@@ -24,7 +20,6 @@ public class ModuleAdapter  extends ArrayAdapter<Module> {
         // Store Context object as we would need to use it later
         this.context = context;
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // The usual way to get the LayoutInflater object to
@@ -33,30 +28,45 @@ public class ModuleAdapter  extends ArrayAdapter<Module> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row.xml as the layout for the View object
         View rowView = inflater.inflate(R.layout.row, parent, false);
-
         // Get the TextView object
         tvModuleCode = (TextView) rowView.findViewById(R.id.tvModuleCode);
         // Get the ImageView object
         ivImage = (ImageView) rowView.findViewById(R.id.ivImage);
 
-
         // The parameter "position" is the index of the
         //  row ListView is requesting.
         //  We get back the food at the same index.
         Module currentModule = modules.get(position);
-        // Set the TextView to show the food
-
         tvModuleCode.setText(currentModule.getModule());
-        // Set the image to star or nostar accordingly
-
-         ivImage.setImageResource(R.drawable.chest);
-
+        if (currentModule.getYear().equals("Year 1")){
+            if (position == 0){
+                ivImage.setImageResource(R.drawable.prog);
+            }else if(position == 1){
+                ivImage.setImageResource(R.drawable.nonprog);
+            }else{
+                ivImage.setImageResource(R.drawable.prog);
+            }
+        }
+        else if (currentModule.getYear().equals("Year 2")){
+            if (position == 0){
+                ivImage.setImageResource(R.drawable.prog);
+            }else if(position == 1){
+                ivImage.setImageResource(R.drawable.prog);
+            }else{
+                ivImage.setImageResource(R.drawable.nonprog);
+            }
+        }
+        else if (currentModule.getYear().equals("Year 3")){
+            if (position == 0){
+                ivImage.setImageResource(R.drawable.nonprog);
+            }else if(position == 1){
+                ivImage.setImageResource(R.drawable.nonprog);
+            }else{
+                ivImage.setImageResource(R.drawable.prog);
+            }
+        }
 
         // Return the nicely done up View to the ListView
         return rowView;
     }
-
-
-
-
 }
