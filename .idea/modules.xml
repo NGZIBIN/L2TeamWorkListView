@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/L2TeamWorkListView.iml" filepath="$PROJECT_DIR$/L2TeamWorkListView.iml" group="L2TeamWorkListView" />
+      <module fileurl="file://$PROJECT_DIR$/app/L2TeamWorkListView-app.iml" filepath="$PROJECT_DIR$/app/L2TeamWorkListView-app.iml" group="L2TeamWorkListView/app" />
       <module fileurl="file://$PROJECT_DIR$/TW-ListView.iml" filepath="$PROJECT_DIR$/TW-ListView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
